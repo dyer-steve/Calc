@@ -4,10 +4,10 @@ import java.util.Stack;
 
 import javax.swing.JTextField;
 
-import model.Parser;
+import model.Parser2;
 
 public class Function {
-	private Parser parser = new Parser();
+	private Parser2 parser = new Parser2();
 	private RegretStack<String> zRegret = new RegretStack<String>();
 	private JTextField input;
 	
@@ -17,7 +17,8 @@ public class Function {
 
 	public void solve() {
 		stack();
-		input.setText(parser.value(input.getText()));
+		parser.build(input.getText());
+		input.setText(parser.build(input.getText()).toString());
 	}
 
 	public void clearAll() {
@@ -65,5 +66,26 @@ public class Function {
 		} else if(!zRegret.peek().equals(oldValue)) {
 			zRegret.push(oldValue);
 		}
+	}
+
+	public void parentheses() {
+		String text = input.getText();
+		int left = 0;
+		int right = 0;
+		for(int i=0; i<text.length(); i++) {
+			if(text.charAt(i) == '(') {
+				left++;
+			} else if(text.charAt(i) == ')') {
+				right++;
+			}
+		}
+		if(left==right) {
+			append("(");
+		} else if(left>right){
+			append(")");
+		} else {
+			append(")");
+		}
+		
 	}
 }

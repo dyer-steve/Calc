@@ -27,10 +27,12 @@ public class FunctionKey implements KeyListener {
 			function.backSpace();
 		} else if(arg.getKeyChar() == 10) {
 			function.solve();
-		} else if(key.equals("c")) {
+		} else if(key.matches("c|C")) {
 			function.clearAll();
-		} else if(key.equals("z")) {
+		} else if(key.matches("z|Z")) {
 			function.regret();
+		} else if(key.matches("p|P")) {
+			function.parentheses();
 		}
 	}
 

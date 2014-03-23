@@ -15,7 +15,11 @@ public class SymbolBtnController implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg) {
-		function.append(arg.getActionCommand());
+		if(arg.getActionCommand().equals("( )")) {
+			function.parentheses();
+		} else {
+			function.append(arg.getActionCommand());
+		}
 	}
 
 }

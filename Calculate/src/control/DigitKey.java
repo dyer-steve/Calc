@@ -22,7 +22,10 @@ public class DigitKey implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent arg) {
 		String s = arg.getKeyChar() + "";
-		if(s.matches("[0-9]|\\-|\\+|\\*|\\.")) {
+		if(s.equals("(") || s.equals(")")) {
+			function.append(s);
+		}
+		if(s.matches("[0-9]|\\-|\\+|\\*|\\.|/")) {
 			function.append(s);
 		}
 	}

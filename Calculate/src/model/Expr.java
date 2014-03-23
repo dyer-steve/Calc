@@ -1,7 +1,24 @@
 package model;
-public interface Expr {
+
+public class Expr {
 	
-	public String toString();
+	protected String number;
+	protected Expr exp1, exp2;
 	
-	public abstract Double value();
+	public Expr(String number) {
+		this.number = number;
+	}
+	
+	public Expr(Expr exp1, Expr exp2) {
+		this.exp1 = exp1;
+		this.exp2 = exp2;
+	}
+	
+	public String toString() {
+		return value() + "";
+	}
+	
+	protected double value() {
+		return 0;
+	}
 }

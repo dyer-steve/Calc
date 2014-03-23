@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import model.Parser;
-
 import control.DigitKey;
 import control.Function;
 import control.FunctionKey;
@@ -34,6 +32,7 @@ public class GUI extends JFrame {
 		setLayout(new BorderLayout());
 		
 		input = new JTextField();
+		input.setHorizontalAlignment(JTextField.RIGHT);
 		function = new Function(input);
 		input.setFocusable(false);
 		input.setEditable(false);
@@ -45,6 +44,7 @@ public class GUI extends JFrame {
 		addKeyListener(functionKey);
 		setFocusable(true);
 		addContent();
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
